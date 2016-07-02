@@ -16,8 +16,11 @@ log('setup express');
 let app: express.Express = express();
 app.use(logger());
 
+console.log(colors.cyan('DIRNAME: ' + __dirname + '/../../node_modules'));
 // setup express to have static resource folders
 app.use('', express.static(__dirname + '/../client'));
+app.use('/vendor', express.static(__dirname + '/../../node_modules'));
+
 
 // setup ssl self hosting (use the same certs from browsersync)
 let https_options = {

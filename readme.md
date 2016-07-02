@@ -107,4 +107,12 @@ To install the typings you need see [Typings Github Repo](https://github.com/typ
 
     ```
 16. Add MIT LICENSE file 
-17. Update the index.html to incude 
+17. Update the index.html to include basic links  (page is broken at this point)
+18. Add start script to package.json
+    ```
+            "start": "tsc && node ./src/server/server.js ",
+    ```
+19. Add the Angular 2 NPM modules
+20. Configure /vendor route
+21. Configure /client/js/system.config.js 
+22. 
