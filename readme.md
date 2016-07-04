@@ -1,5 +1,6 @@
 # Creating an Office Addin using Angular2, TypeScript and Express
-
+The following steps are the way I went about learning and deconstructing Andrew Connell's presentation code about creating Office Addins using Angular 2.  
+Theses steps leverage and reproduce much of the code from Andrew Connell's GitHUb repository (Learning Angular2 to Build Office Add-ins)[https://github.com/andrewconnell/pres-ng2-officeaddin]. 
 1. Create the directory structure 
     ```
         └── src
