@@ -7,9 +7,10 @@
       </div>
       <div class="ms-Persona-presence"></div>
       <div class="ms-Persona-details">
-        <div class="ms-Persona-primaryText">{{candidate.name}}</div>
-        <div class="ms-Persona-secondaryText">{{candidate.phone}}</div>
-        <div class="ms-Persona-tertiaryText">{{candidate.email}}</div>
+        <div class="ms-Persona-primaryText">Name: {{candidate.name}}</div>
+        <div class="ms-Persona-secondaryText">Position: {{candidate.position}}</div>
+        <div class="ms-Persona-secondaryText">Phone: {{candidate.phone}}</div>
+        <div class="ms-Persona-tertiaryText">Candidate Email: <a href="mailto:{{candidate.email}}">{{candidate.email}}</a></div>
       </div>
     </div>
   </div>

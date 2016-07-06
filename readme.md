@@ -156,3 +156,6 @@ After reading the file and then checking the [SystemJS Configuration API](https:
         'rxjs': { defaultExtension: 'js' }
     };
 ```
+
+
+## Making Enums print nicely
