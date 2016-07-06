@@ -63,6 +63,7 @@ export class CandidateService {
                 let filter: string = possibleCandidates.join(',');
 
                 let candidates = CANDIDATES;
+
                 //TODO: repalce with query to http service
                 resolve(candidates);
             } catch (error) {
@@ -70,6 +71,7 @@ export class CandidateService {
             }
         });
         return promise;
+
     }
 
 }

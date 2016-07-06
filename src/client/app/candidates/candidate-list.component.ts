@@ -22,12 +22,13 @@ export class CandidateListComponent implements OnInit {
     }
 
     public ngOnInit() {
-        this.logService.info('ngOnInit: CandidateListComponent');
+        this.logService.info('ngOnInit(): CandidateListComponent');
 
         //TODO: Lookup candidates from the current email
         this.loadMatchesFromEmail();
     }
     private loadMatchesFromEmail(): void {
+        this.logService.info('CandidateListComponent:loadMatchesFromEmail() called...');
         // use the OfficeService to get all words that start with a capital letter
         //  which are possible name candidates
         this.officeService.getCandidatesFromEmail()
@@ -41,10 +42,17 @@ export class CandidateListComponent implements OnInit {
                         this.lookupCandidates = results;
                     });
             });
+        
+        this.logService.info('CandidateListComponent: Matches :' + this.lookupCandidates.toString());
+
     }
 
     private getCustomerInitials(candidate: ICandidate): string {
-        return candidate.name.replace(/[a-z]/g, '').replace(' ', '');
+        this.logService.info('CandidateListComponent:getCustomerInitials() called...');
+
+        //return candidate.name.replace(/[a-z]/g, '').replace(' ', '');
+        return 'PAS';
+
     }
 
 }

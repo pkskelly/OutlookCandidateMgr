@@ -1,14 +1,14 @@
-<div *ngFor="let customer of lookupCandidates"
+<div *ngFor="let candidate of lookupCandidates"
       class="ms-PersonaCard candidates">
   <div class="ms-PersonaCard-persona">
     <div class="ms-Persona ms-Persona--sm">
       <div class="ms-Persona-imageArea">
-        <div class="ms-Persona-initials ms-Persona-initials--blue">{{getCustomerInitials(customer)}}</div>
+        <div class="ms-Persona-initials ms-Persona-initials--blue">{{candidate.name}}</div>
       </div>
       <div class="ms-Persona-presence"></div>
       <div class="ms-Persona-details">
         <div class="ms-Persona-primaryText">{{candidate.name}}</div>
-        <div class="ms-Persona-secondaryText">{{candidate.position}}</div>
+        <div class="ms-Persona-secondaryText">{{candidate.phone}}</div>
         <div class="ms-Persona-tertiaryText">{{candidate.email}}</div>
       </div>
     </div>
