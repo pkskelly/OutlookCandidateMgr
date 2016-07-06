@@ -4,5 +4,4 @@ enum CandidateType{
     Consultant  = <any>"Consultant",
     AssociateConsultant = <any>"Associate Consultant"
 }
-
 export {CandidateType};
