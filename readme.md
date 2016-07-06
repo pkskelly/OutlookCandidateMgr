@@ -117,3 +117,26 @@ To install the typings you need see [Typings Github Repo](https://github.com/typ
 20. Configure /vendor route
 21. Configure /client/js/system.config.js 
 22. 
+
+
+
+## It's Always Something - Enabling Shared Components in Angular 2 Office Addins
+once thing that tripped me up for 
+Add a map reference in the System.config object.  And create a reference to the 
+
+```
+    // map tells the System loader where to look for things
+    var map = {
+        'app': 'app', // 'dist',
+        'shared': 'shared/models',  //must add this as a map for other 
+        '@angular': 'vendor/@angular',
+        'rxjs': 'vendor/rxjs',
+    };
+
+    // packages tells the System loader how to load when no filename and/or no extension
+    var packages = {
+        'app': { main: 'main.js', defaultExtension: 'js' },
+        'shared': { main: 'index.js', defaultExtension: 'js' },
+        'rxjs': { defaultExtension: 'js' }
+    };
+```

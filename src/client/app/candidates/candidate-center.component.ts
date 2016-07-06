@@ -1,14 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { ICandidate } from '../../../shared/models/ICandidate';
+
+import {LoggingService} from '../services/logging.service';
+import {CandidateListComponent } from './candidate-list.component';
 
 @Component({
     moduleId: module.id,
+    directives: [CandidateListComponent],
     selector: 'candidate-center',
-    templateUrl: 'candidate-center.component.html'
+    templateUrl: 'candidate-center.component.html',
+    styleUrls: ['candidate-center.component.css']
 })
 export class CandidateCenterComponent implements OnInit {
-    constructor() { }
+    constructor(private logService: LoggingService) { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.logService.info('ngOnInit: CandidateCenterComponent');
+    }
 
 }

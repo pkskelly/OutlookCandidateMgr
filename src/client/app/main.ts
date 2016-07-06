@@ -7,12 +7,12 @@ export class OutlookApp {
         this.initOfficeAddin();
     }
     private initOfficeAddin(): void {
-        this.logService.log('addin loaded - message using LoggingService instance');
+        this.logService.log('CandidateManager Addin loading...');
         
         Office.initialize = (reason: Office.InitializationReason) => {
             bootstrap(AppComponent)
-                .then(success => this.logService.log('addin loaded successfully', success))
-                .catch(error => this.logService.error('Error loading addin', error));
+                .then(success => this.logService.log('CandidateManager loaded successfully.', success))
+                .catch(error => this.logService.error('Error loading CandidateManager addin.', error));
         }
     }
 }

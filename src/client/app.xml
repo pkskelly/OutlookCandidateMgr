@@ -26,9 +26,13 @@
     </Form>
   </FormSettings>
   <Permissions>ReadItem</Permissions>
-  <Rule xsi:type="RuleCollection" Mode="And">
+ <Rule xsi:type="RuleCollection" Mode="And">
     <Rule xsi:type="ItemIs"
           ItemType="Message"
           FormType="Read"/>
+    <Rule xsi:type="ItemHasRegularExpressionMatch"
+          PropertyName="BodyAsHTML"
+          RegExName="PossibleName"
+          RegExValue="\b[A-Z][a-z]+\b"/>
   </Rule>
 </OfficeApp>
