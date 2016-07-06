@@ -159,3 +159,7 @@ After reading the file and then checking the [SystemJS Configuration API](https:
 
 
 ## Making Enums print nicely
+This was great, but the enum values were printing index values instead of something useful for the user.  A quick search found the following 
+post which describes how to ensure the string is returned, and can be a bit future proofed for converting my sample data to actual 
+web service / api calls. See [How to implement an enum with string values in TypeScript](https://blog.rsuter.com/how-to-implement-an-enum-with-string-values-in-typescript/) for the details. 
+

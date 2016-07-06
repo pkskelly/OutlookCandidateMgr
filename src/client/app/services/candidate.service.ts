@@ -20,7 +20,7 @@ import {ICandidate, CandidateType} from '../../../shared/models';
         {
             "phone": "+1 (836) 413-2150",
             "email": "apowers@acme.com",
-            "position": CandidateType.AssociateConsultant,
+            "position": CandidateType.PrincipalConsultant,
             "name": "Aurelia Powers",
             "id": "6e1a8bfb-75a0-4bd1-8eb5-144e7c302e15"
         },
