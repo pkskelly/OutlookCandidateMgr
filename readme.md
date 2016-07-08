@@ -278,3 +278,8 @@ To get this extension
 2. Git History
 3. Angular2 TypeScript Snippets (Wahlin) 
 4. CodeMetrics 
+5. 
+
+
+## Outlook Activation Rules 
+Simple rules are always easy.  Let's look at a more complex example.
