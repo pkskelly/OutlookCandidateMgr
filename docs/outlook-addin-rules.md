@@ -45,3 +45,8 @@ In order to create these rules, and ensure that they are all combined properly, 
 By using the RuleCollection complex type, you can combine the Rule elements using logical operators.  This enables us to specify a set of logical rules that combined meet all of our defined critera.  
 
 The best resource for the Activation Rules that I could find is the [Activation rules for Outlook add-ins](http://dev.office.com/docs/add-ins/outlook/manifests/activation-rules) document in the [Office Dev Center](http://dev.office.com/)
+
+https://dev.office.com/docs/add-ins/outlook/contextual-outlook-add-ins
+
+
+https://dev.office.com/docs/add-ins/outlook/match-strings-in-an-item-as-well-known-entities
