@@ -53,16 +53,19 @@ export class CandidateService {
     constructor(private logService: LoggingService) { }
 
     public lookupCandidatePartials(possibleCandidates: string[]) {
+
+
         let promise: Promise<ICandidate[]> = new Promise<ICandidate[]>((resolve, reject) => {
             try {
                 if (!possibleCandidates || possibleCandidates.length === 0) {
                     this.logService.warn('lookupCandidatePartials(): no candidates provided to lookup.');
                     resolve(new Array<ICandidate>());
                 }
+                this.logService.log('lookupCandidatePartials(): ' + possibleCandidates);
 
                 let filter: string = possibleCandidates.join(',');
 
-                let candidates = CANDIDATES;
+                let candidates = CANDIDATES.filter((x) => x.email === 'hcash@acme.com');
 
                 //TODO: repalce with query to http service
                 resolve(candidates);

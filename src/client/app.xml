@@ -3,7 +3,7 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:type="MailApp">
   <Id>f8ce8d92-0c75-429b-a77d-ec8699a9f93c</Id>
-  <Version>1.0.0.0</Version>
+  <Version>1.0.0.1</Version>
   <ProviderName>Pete Skelly</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Candidate Manager Angular2"/>
@@ -30,9 +30,16 @@
     <Rule xsi:type="ItemIs"
           ItemType="Message"
           FormType="Read"/>
-    <Rule xsi:type="ItemHasRegularExpressionMatch"
-          PropertyName="BodyAsHTML"
-          RegExName="PossibleName"
-          RegExValue="\b[A-Z][a-z]+\b"/>
+    <Rule xsi:type="ItemHasKnownEntity" 
+          EntityType="EmailAddress"/>
+    <Rule xsi:type="ItemHasRegularExpressionMatch" 
+          RegExName="CandidateName" 
+          RegExValue="Candidate Name:" 
+          PropertyName="BodyAsHTML" />
+    <Rule xsi:type="ItemHasRegularExpressionMatch" 
+          RegExName="CandidateEmail" 
+          RegExValue="Salary and Rate:" 
+          PropertyName="BodyAsHTML" />
   </Rule>
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
 </OfficeApp>

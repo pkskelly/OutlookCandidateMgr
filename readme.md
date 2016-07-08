@@ -9,7 +9,7 @@ The following steps are the way I went about rebuilding the code, learnings alon
 These steps leverage and reproduce much of the code from Andrew Connell's 
 GitHUb repository (Learning Angular2 to Build Office Add-ins)[https://github.com/andrewconnell/pres-ng2-officeaddin]. A big thanks to AC for the jump start.  
 Here's what I used to build the project, but you should be able to substitute other tools of your choice. 
-* A Mac with Visual Studio Code v1.2.1 installed
+* A Mac with Visual Studio Code v1.3.0 installed
 * NodeJS v6.2.0
 * NPM v3.3.12
 * TypeScript 1.8.10 
@@ -207,3 +207,74 @@ This was great, but the enum values were printing index values instead of someth
 post which describes how to ensure the string is returned, and can be a bit future proofed for converting my sample data to actual 
 web service / api calls. See [How to implement an enum with string values in TypeScript](https://blog.rsuter.com/how-to-implement-an-enum-with-string-values-in-typescript/) for the details. 
 
+
+
+## Changing the Activation Criteria
+
+https://dev.office.com/docs/add-ins/outlook/contextual-outlook-add-ins
+
+
+https://dev.office.com/docs/add-ins/outlook/match-strings-in-an-item-as-well-known-entities
+
+be carful with the getEntities calls, they are tricky
+    - test for Arrays with instanceOf
+    - ensure that you are getting the correct collection of entities with the emailAddresses, addresses, etc. properties
+
+Samples from some sites indicate that the following code shoudl work, but based on my testing this never returned results (correct me if I am wrong).
+
+
+The best example I could find was in an old post, [Microsoft Office - Exploring the JavaScript API for Office: Mail Apps](https://msdn.microsoft.com/en-us/magazine/dn201750.aspx), which had thefollowing sample which indicates the behavior I am seeing.
+
+```javascript
+Office.initialize = function () {
+  // Check for the DOM to load.
+  $(document).ready(function () {
+    var item = Office.context.mailbox.item;
+    // Get an array of strings that represent postal addresses in the current item.
+    var addresses = item.getEntitiesByType(Office.MailboxEnums.EntityType.Address); 
+    // Continue processing the array of addresses.
+  });
+}
+```
+
+Note that theabove sample **does not** indicate that you should then use ``addresses.emailAddresses`` like many other samples do.  
+
+In the end, I could not figure out how to supress TS2339 errors, but rather did the following to ensure the office.service.ts file compiled.  If there is a beter way let me know or send a pull request. 
+
+### Produces TS2339 Error:
+```javascript
+let entities: Office.Entities = currentEmail.getEntitiesByType(Office.MailboxEnums.EntityType.EmailAddress);               
+if(entities instanceof Array){
+    this.logService.info('getEntitiesByType(): emails in an array', entities);
+    entities.forEach((x:any) => emailAddresses.push(x));
+    this.logService.info(' emails pushed into array', emailAddresses);
+}
+```
+
+### NO TS2339 Error:
+```javascript
+ let entities: any = currentEmail.getEntitiesByType(Office.MailboxEnums.EntityType.EmailAddress);               
+if(entities instanceof Array){
+    this.logService.info('getEntitiesByType(): emails in an array', entities);
+    entities.forEach((x:string) => emailAddresses.push(x));
+    this.logService.info(' emails pushed into array', emailAddresses);
+}
+resolve(emailAddresses);        
+```
+Notice the ``let entities: any``  to force TypeScript to allow the use of the Office.Entities interface and the forEach() call. 
+
+## Updating the CandidateService to filter emails
+So at this point, I have a pretty functional set of code to start modifying in my desired direction.  The idea of the addin is to search a SharePoint list
+for existing candidates by email that might be coming from a recruiting company.  
+
+Let's filter down to the email. 
+
+## My Favorite VS Code Extensions fro Outlook Addin Development  
+With the release of VS Code 1.3.0, some great enhancements to the Extension browsing and usage were implemented.  Here are some of my favorite extensions for Addin development using TypeScript and Angular 2.
+
+1. [Office MailApp Manifest Uploader](https://github.com/knom/VSCode-Office-Manifest-Uploader/) 
+for the development of the Outlook Addin is the [Office MailApp Manifest Uploader](https://github.com/knom/VSCode-Office-Manifest-Uploader/). 
+To get this extension 
+2. Git History
+3. Angular2 TypeScript Snippets (Wahlin) 
+4. CodeMetrics 
