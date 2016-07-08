@@ -7,7 +7,7 @@ This will be more of a series of posts to document the process, learnings, and c
 
 Hopefully this might help someone else, if not, I know I will enjoy the coding! If you learn something, Tweet about it (@pskelly), or link to this repo. If you have an issue, find something wrong, or know of a better way to do something, let me know or send a pull request.  
 
-## 1. [Building a Basic Outlook Addin](build-a-basic-addin)
+## 1. [Building a Basic Outlook Addin](./docs/build-a-basic-addin.md)
 
 ## 2. [Enabling Shared Components in Angular 2 Office Addins](./docs/shared-components.md)
 
