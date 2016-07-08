@@ -1,4 +1,4 @@
-#Building an Office Addin using Angular2, TypeScript and Express 
+# Building an Office Addin using Angular2, TypeScript and Express 
 This year, one of my goals is to code more.  With my current role, I am often not invovled directly in project development work, but I do miss developing.  
 After reading a [recent post from Andrew Connell](http://www.andrewconnell.com/blog/simplifying-technical-presentations-with-docker) and a GitHub repository about [Learning Angular2 to Build Office Add-ins](https://github.com/andrewconnell/pres-ng2-officeaddin) I decided I would get back into coding by diving into TypeScript, Angular2 and Office Addins.
 
@@ -269,17 +269,9 @@ for existing candidates by email that might be coming from a recruiting company.
 
 Let's filter down to the email. 
 
-## My Favorite VS Code Extensions fro Outlook Addin Development  
-With the release of VS Code 1.3.0, some great enhancements to the Extension browsing and usage were implemented.  Here are some of my favorite extensions for Addin development using TypeScript and Angular 2.
 
-1. [Office MailApp Manifest Uploader](https://github.com/knom/VSCode-Office-Manifest-Uploader/) 
-for the development of the Outlook Addin is the [Office MailApp Manifest Uploader](https://github.com/knom/VSCode-Office-Manifest-Uploader/). 
-To get this extension 
-2. Git History
-3. Angular2 TypeScript Snippets (Wahlin) 
-4. CodeMetrics 
-5. 
+[Useful VS Code Extensions for Developing Addins](./docs/addin-vscode-extensions.md)
 
+[Outlook Activation Rules](./docs/outlook-addin-rules.md)
 
-## Outlook Activation Rules 
-Simple rules are always easy.  Let's look at a more complex example.
+[Office App Compatibility Kit](https://www.microsoft.com/en-us/download/confirmation.aspx?id=46831)
