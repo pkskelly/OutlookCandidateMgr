@@ -65,10 +65,13 @@ export class CandidateService {
 
                 let filter: string = possibleCandidates.join(',');
 
-                let candidates = CANDIDATES.filter((x) => x.email === 'hcash@acme.com');
-
+                let candidates = CANDIDATES.filter((x) => x.email === possibleCandidates.toString());
+                if (candidates) {
+                    this.logService.log('lookupCandidatePartials() match found: ' + candidates[0].name);
+                }
                 //TODO: repalce with query to http service
                 resolve(candidates);
+
             } catch (error) {
                 reject(error);
             }
