@@ -12,3 +12,4 @@ import {CandidateCenterComponent} from './candidates/index';
 export class AppComponent {
     constructor(){}
 }
+
