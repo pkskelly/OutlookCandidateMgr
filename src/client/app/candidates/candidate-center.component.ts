@@ -7,7 +7,6 @@ import {CandidateListComponent } from './candidate-list.component';
 
 @Component({
     moduleId: module.id,
-    directives: [CandidateListComponent],
     providers: [
         OfficeService,
         CandidateService

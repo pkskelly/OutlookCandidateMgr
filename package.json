@@ -1,7 +1,7 @@
 {
   "name": "outlookcandidatemgr",
-  "version": "0.0.1",
-  "description": "Candidate Manager Outlook Addin using Angular 2 R5",
+  "version": "0.1.0",
+  "description": "Candidate Manager Outlook Addin using Angular 2.0.0",
   "main": "server.js",
   "scripts": {
     "start": "tsc && node ./src/server/server.js ",
@@ -14,30 +14,33 @@
   "author": "Pete Skelly",
   "license": "MIT",
   "dependencies": {
-    "@angular/common": "2.0.0-rc.5",
-    "@angular/compiler": "2.0.0-rc.5",
-    "@angular/core": "2.0.0-rc.5",
-    "@angular/forms": "0.3.0",
-    "@angular/http": "2.0.0-rc.5",
-    "@angular/platform-browser": "2.0.0-rc.5",
-    "@angular/platform-browser-dynamic": "2.0.0-rc.5",
-    "@angular/upgrade": "2.0.0-rc.5",
+    "@angular/common": "2.0.0",
+    "@angular/compiler": "2.0.0",
+    "@angular/core": "2.0.0",
+    "@angular/forms": "2.0.0",
+    "@angular/http": "2.0.0",
+    "@angular/platform-browser": "2.0.0",
+    "@angular/platform-browser-dynamic": "2.0.0",
+    "@angular/router": "3.0.0",
+
+    "systemjs": "0.19.27",
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "5.0.0-beta.12",
+    "zone.js": "^0.6.23",
+
+    
+    "express": "^4.14.0",
+    "request": "2.72.0",
     "colors": "^1.1.2",
     "connect-logger": "0.0.1",
-    "core-js": "^2.4.0",
     "debug": "^2.2.0",
-    "express": "^4.14.0",
-    "office-ui-fabric": "^2.6.1",
-    "reflect-metadata": "^0.1.3",
-    "request": "2.72.0",
-    "rxjs": "5.0.0-beta.6",
-    "systemjs": "0.19.27",
-    "zone.js": "^0.6.12"
+    "office-ui-fabric": "^2.6.1"
   },
   "devDependencies": {
-    "concurrently": "^2.1.0",
+    "concurrently": "^2.2.0",
     "tslint": "^3.13.0",
     "typescript": "^1.8.10",
-    "typings": "^1.3.1"
+    "typings": "^1.3.3"
   }
 }

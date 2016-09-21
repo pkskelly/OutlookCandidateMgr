@@ -41,7 +41,7 @@
                     PropertyName="BodyAsHTML" />
                 <Rule xsi:type="ItemHasRegularExpressionMatch" 
                     RegExName="CandidateRate" 
-                    RegExValue="Salary and Rate" 
+                    RegExValue="Desired Salary" 
                     PropertyName="BodyAsHTML" />
             </Rule>
         </Rule>

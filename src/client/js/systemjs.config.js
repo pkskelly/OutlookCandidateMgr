@@ -8,7 +8,7 @@
   var map = {
     'app': 'app', // 'dist',
     'shared': 'shared/models',  //must add this as a map for other 
-    '@angular': 'vendor/@angular',
+    '@angular': 'vendor/@angular',   //vendor mapped by express route in server 
     'rxjs': 'vendor/rxjs',
   };
 
@@ -23,10 +23,11 @@
     'common',
     'compiler',
     'core',
+    'forms',
     'http',
     'platform-browser',
     'platform-browser-dynamic',
-    'upgrade',
+    'router',
   ];
 
   // Individual files (~300 requests):
