@@ -4,8 +4,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent }   from './app.component';
-import { CandidateListComponent, CandidateCenterComponent  } from './candidates/index'; //loaded from barrel for candidates
-//import { CandidateCenterComponent  }   from './candidates/candidate-center.component';
+
+import { CandidateListComponent} from './candidates/candidate-list.component';
+import { CandidateCenterComponent  }   from './candidates/candidate-center.component';
+//loaded from barrel for candidates
+//import * as candidates from './candidates';
+
 
 import { LoggingService } from './services/logging.service';
 import { OfficeService } from './services/office.service';
@@ -21,7 +25,8 @@ import { CandidateService } from './services/candidate.service';
     ],
     declarations: [
         AppComponent,
-        CandidateListComponent
+        CandidateListComponent,
+        CandidateCenterComponent
     ],
     providers: [
         CandidateService,

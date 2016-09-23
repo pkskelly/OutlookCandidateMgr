@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {LoggingService} from '../services/logging.service';
 import {ICandidate, CandidateType} from '../../../shared/models';
 
-    const CANDIDATES: ICandidate[] = [
+    const CANDIDATES: ICandidate[] = [        
         {
             "phone": "+1 (980) 435-3838",
             "email": "hcash@acme.com",

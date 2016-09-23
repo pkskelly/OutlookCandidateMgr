@@ -40,6 +40,9 @@ export class CandidateListComponent implements OnInit {
                         // take the matching customers to assign to the public property
                         //  on the component
                         this.lookupCandidates = results;
+                    }).catch((reason: any) => {
+                        this.logService.info('CandidateListComponent:loadMatchesFromEmail() - no matches found!');
+                        this.lookupCandidates = [];
                     });
             });
         
