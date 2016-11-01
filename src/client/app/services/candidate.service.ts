@@ -59,7 +59,7 @@ export class CandidateService implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.logService.log('ngOnInit calling API for candidates...');
-        let candidates = this.getCandidates();
+        //let candidates = this.getCandidates();
         this.logService.log('ngOnInit completed call to API for candidates...');
     }
 
