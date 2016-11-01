@@ -10,7 +10,6 @@ import { CandidateCenterComponent  }   from './candidates/candidate-center.compo
 //loaded from barrel for candidates
 //import * as candidates from './candidates';
 
-
 import { LoggingService } from './services/logging.service';
 import { OfficeService } from './services/office.service';
 import { CandidateService } from './services/candidate.service';
