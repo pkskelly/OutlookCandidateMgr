@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import {LoggingService} from '../services/logging.service';
 import {OfficeService} from '../services/office.service';
@@ -14,7 +15,12 @@ import {ICandidate, CandidateType} from '../../../shared/models';
 export class CandidateListComponent implements OnInit {
 
     public lookupCandidates: ICandidate[] = [];
+    public existingCandidate: boolean = false; 
+    public currentCandidate: ICandidate = null;
 
+    private candidates: ICandidate[];
+    private errorMessage: string;
+    
     constructor(private logService: LoggingService,
         private officeService: OfficeService,
         private candidateService: CandidateService) {
@@ -26,7 +32,20 @@ export class CandidateListComponent implements OnInit {
 
         //TODO: Lookup candidates from the current email
         this.loadMatchesFromEmail();
+   //     this.getHeroes();
+   //     this.logService.log("From the heroes API  "  + this.candidates[0].email);
     }
+
+
+    // getHeroes() {
+    //       this.candidateService.getCandidates()
+    //                .subscribe(
+    //                   candidates => this.candidates.concat(candidates),
+    //                   error => this.errorMessage = <any>error
+    //                 );
+    // }
+
+
     private loadMatchesFromEmail(): void {
         this.logService.info('CandidateListComponent:loadMatchesFromEmail() called...');
         // use the OfficeService to get all words that start with a capital letter
@@ -39,7 +58,9 @@ export class CandidateListComponent implements OnInit {
                     .then((results: ICandidate[]) => {
                         // take the matching customers to assign to the public property
                         //  on the component
+                        this.logService.info('CandidateListComponent:loadMatchesFromEmail() - matches found!');
                         this.lookupCandidates = results;
+                        this.existingCandidate = true;                        
                     }).catch((reason: any) => {
                         this.logService.info('CandidateListComponent:loadMatchesFromEmail() - no matches found!');
                         this.lookupCandidates = [];
@@ -50,12 +71,12 @@ export class CandidateListComponent implements OnInit {
 
     }
 
-    private getCustomerInitials(candidate: ICandidate): string {
-        this.logService.info('CandidateListComponent:getCustomerInitials() called...');
+    // private getCustomerInitials(candidate: ICandidate): string {
+    //     this.logService.info('CandidateListComponent:getCustomerInitials() called...');
 
-        //return candidate.name.replace(/[a-z]/g, '').replace(' ', '');
-        return 'PAS';
+    //     //return candidate.name.replace(/[a-z]/g, '').replace(' ', '');
+    //     return 'PAS';
 
-    }
+    // }
 
 }
