@@ -43,12 +43,5 @@ export const candidates = [
             "position": CandidateType.Consultant,
             "name": "Shaffer Byers",
             "id": "f359a1f7-1fc6-4754-8555-8d71380c91c1"
-        },
-        {
-            "phone": "+1 (809) 559-3097",
-            "email": "aaron-andrews@outlook.com",
-            "position": CandidateType.Consultant,
-            "name": "Aaron Andrews",
-            "id": "f359a1f7-1fc6-4754-8555-8d71380c91c1"
         }
     ];
