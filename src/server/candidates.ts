@@ -43,5 +43,12 @@ export const candidates = [
             "position": CandidateType.Consultant,
             "name": "Shaffer Byers",
             "id": "f359a1f7-1fc6-4754-8555-8d71380c91c1"
+        },
+        {
+            "phone": "+1 (555) 555-1212",
+            "email": "jtull@acme.com",
+            "position": CandidateType.Consultant,
+            "name": "Jethro Tull",
+            "id": "f359a1f7-1de6-4756-8333-8d71380c91c1"
         }
     ];

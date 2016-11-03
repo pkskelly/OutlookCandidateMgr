@@ -14,10 +14,6 @@ import {ICandidate, CandidateType} from '../../../shared/models';
 })
 export class CandidateListComponent implements OnInit {
 
-    public lookupCandidates: ICandidate[] = [];
-    public existingCandidate: boolean = false; 
-    public currentCandidate: ICandidate = null;
-
     private candidates: ICandidate[];
     private errorMessage: string;
     
@@ -31,52 +27,19 @@ export class CandidateListComponent implements OnInit {
         this.logService.info('ngOnInit(): CandidateListComponent');
 
         //TODO: Lookup candidates from the current email
-        this.loadMatchesFromEmail();
-   //     this.getHeroes();
-   //     this.logService.log("From the heroes API  "  + this.candidates[0].email);
+        // this.loadMatchesFromEmail();
+        this.getCandidates();
+
+        this.candidates.forEach((x: ICandidate) => { this.logService.log(x.email)});        
     }
 
 
-    // getHeroes() {
-    //       this.candidateService.getCandidates()
-    //                .subscribe(
-    //                   candidates => this.candidates.concat(candidates),
-    //                   error => this.errorMessage = <any>error
-    //                 );
-    // }
-
-
-    private loadMatchesFromEmail(): void {
-        this.logService.info('CandidateListComponent:loadMatchesFromEmail() called...');
-        // use the OfficeService to get all words that start with a capital letter
-        //  which are possible name candidates
-        this.officeService.getCandidatesFromEmail()
-            .then((candidates: string[]) => {
-                // take candidate words from email & submit to MiniCRM to find matching
-                //  customers
-                this.candidateService.lookupCandidatePartials(candidates)
-                    .then((results: ICandidate[]) => {
-                        // take the matching customers to assign to the public property
-                        //  on the component
-                        this.logService.info('CandidateListComponent:loadMatchesFromEmail() - matches found!');
-                        this.lookupCandidates = results;
-                        this.existingCandidate = true;                        
-                    }).catch((reason: any) => {
-                        this.logService.info('CandidateListComponent:loadMatchesFromEmail() - no matches found!');
-                        this.lookupCandidates = [];
-                    });
-            });
-        
-        this.logService.info('CandidateListComponent: Matches :' + this.lookupCandidates.toString());
-
+    getCandidates() {
+          this.candidateService.getCandidates()
+                   .subscribe(
+                      candidates => this.candidates.concat(candidates),
+                      error => this.errorMessage = <any>error
+                    );
     }
-
-    // private getCustomerInitials(candidate: ICandidate): string {
-    //     this.logService.info('CandidateListComponent:getCustomerInitials() called...');
-
-    //     //return candidate.name.replace(/[a-z]/g, '').replace(' ', '');
-    //     return 'PAS';
-
-    // }
 
 }

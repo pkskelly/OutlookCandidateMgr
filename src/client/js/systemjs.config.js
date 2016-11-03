@@ -7,7 +7,7 @@
   // map tells the System loader where to look for things
   var map = {
     'app': 'app', // 'dist',
-    'shared': 'shared/models',  //must add this as a map for other 
+    'shared': 'shared/models',  //must add this as a map for shared components
     '@angular': 'vendor/@angular',   //vendor mapped by express route in server 
     'rxjs': 'vendor/rxjs',
   };
