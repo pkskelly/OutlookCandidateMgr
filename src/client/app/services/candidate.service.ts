@@ -1,10 +1,9 @@
 import { Injectable, OnInit, OnDestroy } from '@angular/core';
 import * as http from '@angular/http';
-import { Observable } from 'rxjs';
-//import 'rxjs/add/operator/map';
-//import 'rxjs/add/operator/catch';
-import 'rxjs/Rx';
-    
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+
 import { LoggingService } from '../services/logging.service';
 import { ICandidate, CandidateType } from '../../../shared/models';
 
@@ -16,30 +15,26 @@ export class CandidateService implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.logService.log('ngOnInit calling API for candidates...');
-        let candidates = this.getCandidates();
+
         this.logService.log('ngOnInit completed call to API for candidates...');
     }
 
     ngOnDestroy() {
         this.logService.log('ngOnDetroy calling from CandidateService...');
-
-        //dispose of other services as needed
-        //do not need to worry about Http since this is handled by Http for us
-
-        this.logService.log('ngOnDestroy complete for CandidateService...');
     }
 
     constructor(private logService: LoggingService, private _http: http.Http) {
-        this.logService.log(' CandidateService.ctor() start ...');
-
-        this.logService.log(' CandidateService.ctor() end ...');
-
+        this.logService.log(' CandidateService.ctor() ...');
     }
 
     public getCandidates(): Observable<ICandidate[]> {
+
+        this.logService.info('getCandidates(): CandidateService calling http.get()...');
+        
         return this._http.get(this.candidatesUrl)
             .map(this.extractCandidates)
             .catch(this.handleError);
+
     }
 
 

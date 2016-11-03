@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
-import {LoggingService} from '../services/logging.service';
-import {OfficeService} from '../services/office.service';
-import {CandidateService} from '../services/candidate.service';
-import {ICandidate, CandidateType} from '../../../shared/models';
+import { LoggingService } from '../services/logging.service';
+import { OfficeService } from '../services/office.service';
+import { CandidateService } from '../services/candidate.service';
+import { ICandidate, CandidateType } from '../../../shared/models';
 
 @Component({
     moduleId: module.id,
@@ -16,7 +16,7 @@ export class CandidateListComponent implements OnInit {
 
     private candidates: ICandidate[];
     private errorMessage: string;
-    
+
     constructor(private logService: LoggingService,
         private officeService: OfficeService,
         private candidateService: CandidateService) {
@@ -25,21 +25,20 @@ export class CandidateListComponent implements OnInit {
 
     public ngOnInit() {
         this.logService.info('ngOnInit(): CandidateListComponent');
+        this.loadCandidates();
+      }
 
-        //TODO: Lookup candidates from the current email
-        // this.loadMatchesFromEmail();
-        this.getCandidates();
+    private loadCandidates() {
+        this.logService.info('loadCandidates(): CandidateListComponent calling service...');
 
-        this.candidates.forEach((x: ICandidate) => { this.logService.log(x.email)});        
-    }
+        this.candidateService.getCandidates()
+           .subscribe(
+              candidates => this.candidates = candidates,
+              error => this.errorMessage = <any>error
+            );
 
+        this.candidates.forEach((x: ICandidate) => { this.logService.log(x.email) });
 
-    getCandidates() {
-          this.candidateService.getCandidates()
-                   .subscribe(
-                      candidates => this.candidates.concat(candidates),
-                      error => this.errorMessage = <any>error
-                    );
     }
 
 }

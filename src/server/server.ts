@@ -27,7 +27,7 @@ app.use('/vendor', express.static(__dirname + '/../../node_modules'));
 app.use('/shared', express.static(__dirname + '/../shared'));
 
 app.get('/api/candidates', function (req, res) {
-    console.log('*** candidates api called ...');
+    console.log('*** candidates api called ***');
     res.status(200).json({
         CANDIDATES
     });
